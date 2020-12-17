@@ -3,6 +3,8 @@
 # Simple python program powered by sqlite3
 # to document which organizations I've applied to
 # and other relevant information.
+# NOTE: the user must first instantiate DB & .schema:
+# the .db placed in this directory.
 # .schema
 # CREATE TABLE applications(
 # company_name VARCHAR(30),
