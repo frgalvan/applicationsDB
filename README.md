@@ -1,7 +1,7 @@
 # applicationsDB
 
 ## Motivation
-While utilizing a variety of job board websites to submit my applications for work, I realized that I was double applying to the same positions from different sites!  I decided to build myself a solution to document my applications as I've submitted them.
+While utilizing a variety of job board websites to submit my applications for work, I realized that I was double applying to positions from different sites!  I decided to build myself a solution to document my applications as I've submitted them.
 
 I'd never combined SQLite with Python so I decided to give it a shot. It ended up being extremely simple!
 
