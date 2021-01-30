@@ -23,7 +23,6 @@ Navigate to the working directory and type:
 
 ```
 python3 main.py
-
 ```
 or 	
 ```
