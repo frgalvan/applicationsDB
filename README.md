@@ -4,9 +4,9 @@
 While utilizing a variety of job board websites to submit my applications for work, I realized that I was double applying to positions from different sites!  I decided to build myself a solution to document my applications as I've submitted them.
 
 ## System requirements
-I'd never combined SQLite with Python so I decided to give it a shot. It ended up being extremely simple! This project was build in Pycharm on macOS Big Sur.
-* SQLite 3
-* Python3.8
+I'd never combined SQLite with Python so I decided to give it a shot. It ended up being very simple! This project was built in Pycharm on macOS Big Sur.
+* SQLite 3.32
+* Python 3.8
 
 ## Future enhancements
 * I'd like to add a GUI to make it more user friendly.
