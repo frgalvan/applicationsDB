@@ -11,5 +11,9 @@ I'd never combined SQLite with Python so I decided to give it a shot. It ended u
 * Make main an executable.
 * Encrypt the db as to not worry about pushing it.
 
+<p>
+  <img src="https://github.com/frgalvan/applicationsDB/blob/main/venv/img.png" width="570px" align="middle"/>
+</p>
+
 #### A note about the committed 'applied.db'
 It's just got two dummy entries in it, but you can clear it and build it yourself! (see schema at the head of 'main.py')
