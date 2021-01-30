@@ -11,5 +11,5 @@ I'd never combined SQLite with Python so I decided to give it a shot. It ended u
 * Make main an executable.
 * Encrypt my db so I don't have to worry about pushing it
 
-### A note about the committed 'applied.db'
+#### A note about the committed 'applied.db'
 It's just got two dummy entries in it, but you can clear it and build it yourself! (see schema at the head of 'main.py')
