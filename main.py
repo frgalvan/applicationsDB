@@ -39,61 +39,38 @@ def main():
     user_input = input("\nYour selection: ")
 
     while user_input != 'X' and user_input != 'x':
-        if (user_input == '1'):
+        if user_input == '1':
             co_name = input(" What's the company's name? ")
             selectCmd = """SELECT * FROM applications WHERE company_name IS "%s" ;""" % co_name
-            try:
-                cursor.execute(selectCmd)
-                print(cursor.fetchall()[0])  # returns a tuple embedded in a list, both index-able
-            except:
-                print(" Company not in DB, yet")
-                time.sleep(1)
+            cursor.execute(selectCmd)
+            print(cursor.fetchall()[0])  # returns a tuple in a list
 
-        elif (user_input == '2'):
+        elif user_input == '2':
             insertCmd = newEntry()
-            try:
-                cursor.execute(insertCmd)
-            except:
-                print(" There was a problem with your input.")
-                print(" Please try again")
+            cursor.execute(insertCmd)
 
-        elif (user_input == '3'):
+        elif user_input == '3':
             deniedCmd = denied()
-            try:
-                cursor.execute(deniedCmd)
-            except:
-                print(" There was a problem with your input.")
-                print(" Please try again")
+            cursor.execute(deniedCmd)
 
-        elif (user_input == '4'):
+        elif user_input == '4':
             showCmd = queryAll()
-            try:
-                cursor.execute(showCmd)
-                print('\n{:12s}     {:30s}       {}'.format("Company Name", "Position", "Date submitted\n"))
-                for count, row in enumerate(cursor):
-                    print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
-            except:
-                print(" There was a problem with your input.")
-                print(" Please try again")
+            cursor.execute(showCmd)
+            print('\n{:12s}     {:30s}       {}'.format("Company Name", "Position", "Date submitted\n"))
+            for count, row in enumerate(cursor):
+                print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
 
-        elif (user_input == '5'):
+        elif user_input == '5':
             today = date.today().strftime('%m/%d/%y')
             query = """SELECT * FROM applications WHERE is_denied = "false" AND date_applied = '%s' ;""" % today
-            try:
-                cursor.execute(query)
-                for count, row in enumerate(cursor):
-                    print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
-            except:
-                print(" There was a problem with your input.")
-                print(" Please try again")
+            cursor.execute(query)
+            for count, row in enumerate(cursor):
+                print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
 
-        elif (user_input == '6'):
+        elif user_input == '6':
             query = """SELECT * FROM applications;"""
-            try:
-                results = cursor.execute(query)
-                print("   You've submitted " + str(len(results.fetchall())) + " applications in total!")
-            except:
-                print(" There was a problem with the query")
+            results = cursor.execute(query)
+            print("   You've submitted " + str(len(results.fetchall())) + " applications in total!")
 
         print('\n  Going back to the main menu..')
         time.sleep(2)
@@ -108,23 +85,23 @@ def main():
     print(" Saving and closing")
 
 
-# helper fn newEntry() collects the values to populate the insertion query.
 def newEntry():
     co_name = input("Please enter the name of the company: ")
-    role    = input("For what position?: ")
-    date    = input("today's date (xx/xx/xx): ")
-    resume  = input("which resume did you use?: ")
+    role = input("For what position?: ")
+    date = input("today's date (xx/xx/xx): ")
+    resume = input("which resume did you use?: ")
 
     queryBuilder = """INSERT INTO applications VALUES( "%s", "false", "%s", "%s", "%s");""" % (
-    co_name, role, date, resume)
+        co_name, role, date, resume)
     return queryBuilder
 
-# fn denied() will edit the applications table's is_denied attribute to true
+
 def denied():
-    co_name =  input("Enter the name of the company: ")
+    co_name = input("Enter the name of the company: ")
     queryBuilder = """UPDATE applications SET is_denied = "true" WHERE company_name = "%s"; """ % (
         co_name)
     return queryBuilder
+
 
 def queryAll():
     print("\n 1. Order by company name")
@@ -133,9 +110,10 @@ def queryAll():
 
     user_input = input("Select: ")
     while user_input != 'R' or user_input != 'r':
-        if  user_input == '1':
+        if user_input == '1':
             queryBuilder = """SELECT * FROM applications WHERE is_denied IS "false" ORDER BY company_name;"""
             return queryBuilder
+
         elif user_input == '2':
             queryBuilder = """SELECT * FROM applications WHERE is_denied IS "false" ORDER BY date_applied;"""
             return queryBuilder
