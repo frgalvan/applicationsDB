@@ -23,15 +23,17 @@ cursor = connection.cursor()
 
 
 def main():
-    print("  ************** Welcome **************")
+    print("\n\n  ******************************************************")
+    print("  ********************** Welcome ***********************")
     print("  This is your local Applied DB where you can search for")
     print("  and/or add organizations to which you've applied.")
     print("  (Don't forget to save your changes!)")
-    print("    1. Search by company name")
+    print("\n    1. Search by company name")
     print("    2. New submission")
     print("    3. Application denied")
     print("    4. Show all pending applications")
     print("    5. Show today's submissions")
+    print("    6. Number of applications so far")
     print("    X. Save and exit\n")
 
     user_input = input("\nYour selection: ")
@@ -85,6 +87,14 @@ def main():
                 print(" There was a problem with your input.")
                 print(" Please try again")
 
+        elif (user_input == '6'):
+            query = """SELECT * FROM applications;"""
+            try:
+                results = cursor.execute(query)
+                print("   You've submitted " + str(len(results.fetchall())) + " applications in total!")
+            except:
+                print(" There was a problem with the query")
+
         print('\n  Going back to the main menu..')
         time.sleep(2)
         print("\n  1. Search by company name")
@@ -92,6 +102,7 @@ def main():
         print("  3. Application denied")
         print("  4. Show all pending applications")
         print("  5. Show today's submissions")
+        print("  6. Number of applications so far")
         print("  X. Save and exit\n")
         user_input = input("\nSelection: ")
     print(" Saving and closing")
