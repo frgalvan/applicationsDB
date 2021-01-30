@@ -42,8 +42,11 @@ def main():
         if user_input == '1':
             co_name = input(" What's the company's name? ")
             selectCmd = """SELECT * FROM applications WHERE company_name IS "%s" ;""" % co_name
-            cursor.execute(selectCmd)
-            print(cursor.fetchall()[0])  # returns a tuple in a list
+            try:
+                cursor.execute(selectCmd)
+                print(cursor.fetchall()[0])  # returns a tuple in a list
+            except:
+                print(co_name + " not in database, yet.")
 
         elif user_input == '2':
             insertCmd = newEntry()
