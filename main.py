@@ -58,11 +58,11 @@ def main():
 
         elif user_input == '4':
             showCmd = queryAll()
-            cursor.execute(showCmd)
-            print('\n{:12s}     {:30s}       {}'.format("Company Name", "Position", "Date submitted\n"))
-            for count, row in enumerate(cursor):
-                print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
-
+            if showCmd is not None:
+                cursor.execute(showCmd)
+                print('\n{:12s}     {:30s}       {}'.format("Company Name", "Position", "Date submitted\n"))
+                for count, row in enumerate(cursor):
+                    print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
         elif user_input == '5':
             today = date.today().strftime('%m/%d/%y')
             query = """SELECT * FROM applications WHERE is_denied = "false" AND date_applied = '%s' ;""" % today
@@ -75,7 +75,7 @@ def main():
             results = cursor.execute(query)
             print("   You've submitted " + str(len(results.fetchall())) + " applications in total!")
 
-        print('\n  Going back to the main menu..')
+        print('\n  ..Going back to the main menu..')
         time.sleep(2)
         print("\n  1. Search by company name")
         print("  2. New submission")
@@ -112,7 +112,7 @@ def queryAll():
     print(" R  Return")
 
     user_input = input("Select: ")
-    while user_input != 'R' or user_input != 'r':
+    while user_input != 'R' and user_input != 'r':
         if user_input == '1':
             queryBuilder = """SELECT * FROM applications WHERE is_denied IS "false" ORDER BY company_name;"""
             return queryBuilder
@@ -125,6 +125,7 @@ def queryAll():
         print(" 2. Order by date")
         print(" R  Return")
         user_input = input("Select: ")
+
     print("\n Aight then..")
     time.sleep(1)
     return
