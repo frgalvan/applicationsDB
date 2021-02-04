@@ -53,6 +53,7 @@ def main():
             cursor.execute(insertCmd)
 
         elif user_input == '3':
+            # TODO : There is no prompt for a successful update vs. an unsuccessful one
             deniedCmd = denied()
             cursor.execute(deniedCmd)
 
@@ -63,6 +64,7 @@ def main():
                 print('\n{:12s}     {:30s}       {}'.format("Company Name", "Position", "Date submitted\n"))
                 for count, row in enumerate(cursor):
                     print(str(count + 1) + '.  {:12s} --- {:30s} ----- {}'.format(row[0], row[2], row[3]))
+
         elif user_input == '5':
             today = date.today().strftime('%m/%d/%y')
             query = """SELECT * FROM applications WHERE is_denied = "false" AND date_applied = '%s' ;""" % today
