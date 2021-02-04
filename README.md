@@ -1,7 +1,7 @@
 # applicationsDB
 
 ## Motivation
-While I was utilizing a variety of job board websites to submit my applications for work, I realized that I was double applying to positions from different sites!  I decided to build myself a small program to document my applications as I've submitted them to prevent any more of this.
+While I was utilizing a variety of job board websites to submit my applications for work, I realized that I was double applying to positions from different sites!  I decided to build myself a small program to document my applications as I'm submitting them to prevent this from happening again.
 
 ## Brief Overview
 I started out with a simple python terminal interface with 2 options: 
