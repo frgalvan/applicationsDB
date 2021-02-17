@@ -5,8 +5,8 @@ While I was utilizing a variety of job board websites to submit my applications 
 
 ## Brief Overview
 I started out with a simple python terminal interface with 2 options: 
-  1.  Search for the name of a company to compare against the DB. 
-  2.  Submit a new entry from the user's input
+  1.  Look up company name for existance in the database. 
+  2.  Submit a new entry from user's input.
   
 I've since added a few more features.
 #### [You can see more here](https://github.com/frgalvan/applicationsDB/wiki)
