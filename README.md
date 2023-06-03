@@ -41,4 +41,6 @@ And you should be greeted with the following (note that the color of your termin
 * Encrypt the db as to not worry about pushing it.
 
 ***A note about the committed 'applied.db'***
-*It's just got two dummy entries in it, but you can clear it and build it yourself! (see schema at the head of 'main.py')*
+*It's just got two dummy entries in it, but you can clear it and build it yourself! (see schema at the head of 'main.py')* 
+
+# May 29, 2023 
